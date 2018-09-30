@@ -1,9 +1,17 @@
 <template>
 	<div id="myContainer">
-
+		<div class="page-header">
+			<h3 class="page-title">
+				Perkiraan Akun <icon name="map"></icon>
+			</h3>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">Basic elements</li>
+				</ol>
+			</nav>
+		</div>
 	<div class="card">
-		<h3 class="card-header text-white bg-primary no-margin">Perkiraan Akun <icon name="map"></icon></h3>
-		<b-breadcrumb :items="items"/>
 		<div class="card-body">
             <b-alert variant="danger"
 						 dismissible
@@ -18,7 +26,8 @@
 						<button type="button" class="btn btn-sm btn-info" ><icon name="plus"></icon></button>
 					</router-link>
 				</div>
-				<div class="table-responsive">
+				<br />
+				<div class="table-responsive grid-margin stretch-card table-striped">
 					<table class="table table-bordered">
 						<thead>
 							<tr>
@@ -31,7 +40,7 @@
 						</thead>
 						<tbody >
 							<tr v-for="(s, index) in queries" :key="s.id">
-								<td>{{ s.kode_akun }}</td>
+								<td class="py-1">{{ s.kode_akun }}</td>
 								<td>{{ s.perkiraan_akun }}</td>
 								<td>{{ s.sub_klasifikasi }}</td>
 								<td>{{ s.klasifikasi }}</td>
