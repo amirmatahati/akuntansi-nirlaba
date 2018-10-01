@@ -28,13 +28,12 @@ class AJPController extends Controller
         $this->middleware('auth');
     }
     public function createAJP(Request $request)
-	{ 
+	{
 		$table					= "ayat_jurnal_penyesuaian";
         $primary				= "no_ajp";
         $prefix					= "AJP";
         $nojurnal				= Autonumber::autonumber($table,$primary,$prefix);
-		
-		$so						= MSallesOrder::pluck('no_so', 'id');
+
 
 		return response()->json($nojurnal);
 		return view('finance.jurnal.add', compact('so', 'nojurnal'));
@@ -42,25 +41,25 @@ class AJPController extends Controller
 	public function storeAJP(Request $request)
 	{
 		$ajp					= new MAJP;
-		
+
 		$ajp->no_ajp			= $request->no_jurnal;
 		$ajp->info_ajp			= $request->info;
 		$ajp->so_id				= 0;
 		$ajp->user_id			= \Auth::user()->id;
 		$ajp->date_ajp			= $request->date_added;
-		
+
 		$ajp->save();
-		
+
 		$id_ajp					= $ajp->id;
 		$ajpdates				= $ajp->date_ajp;
 		$perkiraan_id			= $request->perkiraan_id;
 
 		foreach ($request->input('data') as $key => $v){
-			$detailjurnal []  = [ 
+			$detailjurnal []  = [
 						   'ajp_id' => $id_ajp,
 						   'id_akun' => $v['id'],
 						   'ajp_debet'		=> $v['jumlah_debet'],
-						   'ajp_kredit' => $v['jumlah_kredit'], 
+						   'ajp_kredit' => $v['jumlah_kredit'],
 						   'ajp_date' => $ajpdates
 			  ];
 	   }
@@ -77,7 +76,7 @@ class AJPController extends Controller
 									'ayat_jurnal_penyesuaian.id as id_ajp','ayat_jurnal_penyesuaian.date_ajp','ayat_jurnal_penyesuaian.no_ajp',
 									'perkiraan.perkiraan_akun')
 									->paginate(10);
-		
+
 		$data	= [
 			'data'			=> $ajp,
 			'pagination' => [

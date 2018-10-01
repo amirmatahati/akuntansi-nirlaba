@@ -1,7 +1,18 @@
 <template>
+	<div id="myContainer">
+	<div class="page-header">
+		<h3 class="page-title">
+			Add Akun <icon name="map"></icon>
+		</h3>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+				<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Ref'}">Akun Perkiraan</router-link></li>
+				<li class="breadcrumb-item active" aria-current="page">Add Akun</li>
+			</ol>
+		</nav>
+	</div>
 	<div class="card">
-		<h3 class="card-header text-white bg-primary no-margin">Perkiraan Akun <icon name="map"></icon></h3>
-		<b-breadcrumb :items="items"/>
 		<div class="card-body">
 			<form method="post" v-on:submit.stop.prevent="InsertRef" id="row">
       <b-row class="my-1">
@@ -52,10 +63,16 @@
 								</b-form-select>
 	            </b-col>
 					</b-row>
-            <b-button id="submit" @click="InsertRef">Insert</b-button>
+					<br />
+					<b-row class="my-1">
+						<b-col sm="12">
+            		<b-button class="btn btn-gradient-success btn-fw btn-icon-text" id="submit" @click="InsertRef"><i class="mdi mdi-file-check btn-icon-prepend"></i> Submit</b-button>
+						</b-col>
+					</b-row>
 					</form>
         </div>
     </div>
+	</div>
 </template>
 
 <script>

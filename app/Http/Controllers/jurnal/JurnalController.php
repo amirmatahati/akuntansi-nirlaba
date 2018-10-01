@@ -76,7 +76,7 @@ class JurnalController extends Controller
         $prefix					= "JU";
         $nojurnal				= Autonumber::autonumber($table,$primary,$prefix);
 
-		$so						= MSallesOrder::pluck('no_so', 'id');
+		
 		return response()->json($nojurnal);
 		return view('finance.jurnal.add', compact('so', 'nojurnal'));
 	}

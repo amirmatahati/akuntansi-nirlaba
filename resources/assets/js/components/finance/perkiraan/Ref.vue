@@ -7,7 +7,7 @@
 			<nav aria-label="breadcrumb">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
-					<li class="breadcrumb-item active" aria-current="page">Basic elements</li>
+					<li class="breadcrumb-item active" aria-current="page">Akun Perkiraan</li>
 				</ol>
 			</nav>
 		</div>
@@ -44,7 +44,7 @@
 								<td>{{ s.perkiraan_akun }}</td>
 								<td>{{ s.sub_klasifikasi }}</td>
 								<td>{{ s.klasifikasi }}</td>
-                                <td><button type="button" id="send" class="btn btn-sm btn-info" @click="Edit(index)"><icon name="pencil-alt"></icon></button></td>
+                <td><button type="button" id="send" class="btn btn-sm btn-gradient-primary" @click="Edit(index)"><icon name="pencil-alt"></icon></button></td>
 							</tr>
 						</tbody>
 					</table>
@@ -111,7 +111,15 @@
 									</b-form-select>
 	            </b-col>
 						</b-row>
-            <b-button id="submit" @click="UpdateRef">Update</b-button>
+						<br />
+						<b-row class="my-1">
+								<b-col sm="12">
+										<button type="button" class="btn btn-gradient-dark btn-icon-text" id="submit" @click="UpdateRef">
+											Update
+											<i class="mdi mdi-file-check btn-icon-append"></i>
+										</button>
+								</b-col>
+						</b-row>
 				</div>
 			</div>
 		</div>

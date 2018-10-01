@@ -1,28 +1,37 @@
 <template>
 	<div id="myContainer">
+		<div class="page-header">
+			<h3 class="page-title">
+				Kas Masuk <icon name="map"></icon>
+			</h3>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Mkasbank'}">Transaksi</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">Input Transaksi</li>
+				</ol>
+			</nav>
+		</div>
 	    <div class="card">
-		    <h3 class="card-header text-white bg-primary no-margin">Kas Masuk <icon name="map"></icon></h3>
-			<b-breadcrumb :items="items"/>
     		<div class="card-body">
-                <b-row>
-                    <b-col sm="6">
-						<b-row class="my-1">
-                            <b-col sm="4"><label for="input-small">Akun Kas :</label></b-col>
-                            <b-col sm="8">
-                                <b-form-select v-model="akun_type" class="mb-3" v-on:change="getData">
-									<option v-for="item in akun" :value="item.id" :key="item.id">
-										{{item.perkiraan_akun}}
-									</option>
-								</b-form-select>
-                            </b-col>
-                        </b-row>
-
-                    </b-col>
+          	<b-row>
+            		<b-col sm="6">
+										<b-row class="my-1">
+                    		<b-col sm="4"><label for="input-small" class="text-primary">Akun Kas :</label></b-col>
+                        <b-col sm="8">
+                        		<b-form-select v-model="akun_type" class="mb-3" v-on:change="getData">
+															<option v-for="item in akun" :value="item.id" :key="item.id">
+																{{item.perkiraan_akun}}
+															</option>
+														</b-form-select>
+                        </b-col>
+                    </b-row>
+                </b-col>
                     <b-col sm="6">
 						<b-row class="my-1">
                             <b-col sm="4"><label for="input-small">Saldo Kas :</label></b-col>
                             <b-col sm="8">
-																<label>{{ formatPrice(total_saldo2)}}</label>
+																<label class="text-primary">{{ formatPrice(total_saldo2)}}</label>
                             </b-col>
                         </b-row>
 
@@ -121,8 +130,8 @@
 											</tr>
 										</tbody>
 									</table>
+									<pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="getAkun()"></pagination>
 								</div>
-								<pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="getAkun()"></pagination>
 							</div>
 						</div>
 
@@ -175,7 +184,12 @@
 									</div>
 								</b-col>
 							</b-row>
-							<button id="submit" type="submit" @click="processForm()" class="btn btn-success">Insert</button>
+							<br />
+							<b-row class="my-1">
+									<b-col sm="12">
+											<button class="btn btn-gradient-success btn-fw btn-icon-text" id="submit" type="submit" @click="processForm()"><i class="mdi mdi-file-check btn-icon-prepend"></i> Insert</button>
+									</b-col>
+							</b-row>
 							</div>
 						</div>
 					</b-col>
