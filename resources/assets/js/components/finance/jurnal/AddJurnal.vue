@@ -1,10 +1,20 @@
 <template>
 	<div id="myContainer">
+		<div class="page-header">
+			<h3 class="page-title">
+				Add Jurnal <icon name="map"></icon>
+			</h3>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'JurnalList'}">Jurnal Umum</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">Add Jurnal</li>
+				</ol>
+			</nav>
+		</div>
 	    <div class="card">
-		    <h3 class="card-header text-white bg-primary no-margin">Add Jurnal <icon name="map"></icon></h3>
-			<b-breadcrumb :items="items"/>
     		<div class="card-body">
-                <b-row class="my-1">
+      	<b-row class="my-1">
 				    <b-col sm="4"><label for="input-small">No. Jurnal:</label></b-col>
 					<b-col sm="8">
 						<b-form-input id="input-small" size="sm" type="text" placeholder="No. Jurnal" v-model="nojurnal" disabled="disabled"></b-form-input>

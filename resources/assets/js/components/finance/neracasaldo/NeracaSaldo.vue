@@ -1,8 +1,18 @@
 <template>
+	<div id="myContainer">
+		<div class="page-header">
+			<h3 class="page-title">
+				Neraca Saldo <icon name="map"></icon>
+			</h3>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">Neraca Saldo</li>
+				</ol>
+			</nav>
+		</div>
 	<div class="card">
-        <h3 class="card-header text-white bg-primary no-margin">Neraca Saldo <icon name="map"></icon></h3>
-		<b-breadcrumb :items="items"/>
-        <div class="card-body">
+    <div class="card-body">
 			<form @submit.prevent="neracaSaldo">
                 <b-row>
                     <b-col sm="6">
@@ -48,6 +58,7 @@
            </div>
         </div>
     </div>
+	</div>
 </template>
 
 <script>

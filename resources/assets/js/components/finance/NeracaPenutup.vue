@@ -1,7 +1,17 @@
 <template>
+	<div id="myContainer">
+		<div class="page-header">
+			<h3 class="page-title">
+				POSISI KEUANGAN <icon name="map"></icon>
+			</h3>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">Posisi Keuangan</li>
+				</ol>
+			</nav>
+		</div>
 	<div class="card">
-        <h3 class="card-header text-white bg-primary no-margin">Posisi Keuangan <icon name="map"></icon></h3>
-		<b-breadcrumb :items="items"/>
         <div class="card-body">
 			<form @submit.prevent="Ekuitas">
                 <b-row>
@@ -95,6 +105,7 @@
            </div>
         </div>
     </div>
+	</div>
 </template>
 
 <script>

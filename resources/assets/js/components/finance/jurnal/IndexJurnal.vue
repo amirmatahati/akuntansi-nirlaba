@@ -1,9 +1,18 @@
 <template>
+	<div id="myContainer">
+	<div class="page-header">
+		<h3 class="page-title">
+			List Jurnal Umum<icon name="map"></icon>
+		</h3>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+				<li class="breadcrumb-item active" aria-current="page">urnal Umum</li>
+			</ol>
+		</nav>
+	</div>
 	<div class="card">
-        <h3 class="card-header text-white bg-primary no-margin">Jurnal Umum <icon name="map"></icon></h3>
-		<b-breadcrumb :items="items"/>
-        <div class="card-body">
-
+      <div class="card-body">
 				<b-row>
 					<b-col sm="6">
 						<router-link v-bind:to="{name: 'JurnalAdd'}">
@@ -185,7 +194,7 @@
 
 
     </div>
-
+	</div>
 
 
 
@@ -241,7 +250,7 @@
 
 
 		},
-		
+
 		created: function()
         {
            this.jurnalIndex()

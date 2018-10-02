@@ -1,6 +1,17 @@
 <template>
+	<div id="myContainer">
+	<div class="page-header">
+		<h3 class="page-title">
+			Buku Besar <icon name="map"></icon>
+		</h3>
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><router-link v-bind:to="{name: 'Finance'}">Home</router-link></li>
+				<li class="breadcrumb-item active" aria-current="page">Buku Besar</li>
+			</ol>
+		</nav>
+	</div>
 	<div class="card">
-        <h3 class="card-header text-white bg-primary no-margin">Jurnal Umum <icon name="map"></icon></h3>
 		<b-breadcrumb :items="items"/>
         <div class="card-body">
 			<form @submit.prevent="bukubesarData">
@@ -29,6 +40,7 @@
 
         </div>
     </div>
+	</div>
 </template>
 
 <script>

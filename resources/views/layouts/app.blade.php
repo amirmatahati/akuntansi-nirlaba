@@ -95,7 +95,10 @@
         </nav>
 -->
           <div class="container-scroller">
+            @guest
+            @else
               @include('includes/navbar')
+              @endguest
               <div class="container-fluid page-body-wrapper">
                   @include('includes/header')
                 <div class="main-panel">
